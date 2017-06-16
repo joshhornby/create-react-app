@@ -94,7 +94,7 @@ module.exports = {
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.js', '.json', '.jsx'],
+    extensions: ['.js', '.json', '.jsx', '.elm'],
     alias: {
       // @remove-on-eject-begin
       // Resolve Babel runtime relative to react-scripts.
@@ -119,6 +119,7 @@ module.exports = {
     ],
   },
   module: {
+    noParse: /\.elm$/,
     strictExportPresence: true,
     rules: [
       // TODO: Disable require.ensure as it's not a standard language feature.
@@ -166,6 +167,7 @@ module.exports = {
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
+          /\.elm$/,
         ],
         loader: require.resolve('file-loader'),
         options: {
@@ -230,6 +232,25 @@ module.exports = {
                   flexbox: 'no-2009',
                 }),
               ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.elm$/,
+        exclude: [/elm-stuff/, /node_modules/],
+        use: [
+          {
+            loader: require.resolve('elm-hot-loader'),
+          },
+          {
+            loader: require.resolve('elm-webpack-loader'),
+            options: {
+              verbose: true,
+              warn: true,
+              debug: true,
+              pathToMake: paths.elmMake,
+              forceWatch: true,
             },
           },
         ],

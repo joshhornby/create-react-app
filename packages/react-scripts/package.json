@@ -1,14 +1,17 @@
 {
   "name": "react-scripts",
-  "version": "1.0.7",
+  "version": "0.0.1",
   "description": "Configuration and scripts for Create React App.",
-  "repository": "facebookincubator/create-react-app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshhornby/create-react-app/"
+  },
   "license": "BSD-3-Clause",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/facebookincubator/create-react-app/issues"
+    "url": "https://github.com/joshhornby/create-react-app/issues"
   },
   "files": [
     "bin",
@@ -32,6 +35,10 @@
     "chalk": "1.1.3",
     "css-loader": "0.28.1",
     "dotenv": "4.0.0",
+    "elm": "^0.18.0",
+    "elm-hot-loader": "^0.5.4",
+    "elm-test": "^0.18.6",
+    "elm-webpack-loader": "^4.3.1",
     "eslint": "3.19.0",
     "eslint-config-react-app": "^1.0.4",
     "eslint-loader": "1.7.1",

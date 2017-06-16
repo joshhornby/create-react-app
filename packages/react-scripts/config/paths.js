@@ -62,6 +62,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
   servedPath: getServedPath(resolveApp('package.json')),
+  elmMake: require('elm/platform').executablePaths['elm-make'],
 };
 
 // @remove-on-eject-begin
